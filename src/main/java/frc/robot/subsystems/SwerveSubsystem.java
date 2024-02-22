@@ -10,6 +10,7 @@ import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.kinematics.SwerveDriveOdometry;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
+//import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 /*import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;*/
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -132,6 +133,9 @@ public class SwerveSubsystem extends SubsystemBase {
         SmartDashboard.putNumber("Back Left Turn Angle", backLeft.getAbsoluteEncoderRad());
         SmartDashboard.putNumber("Front Right Turn Angle", frontRight.getAbsoluteEncoderRad());
         SmartDashboard.putNumber("Back Right Turn Angle", backRight.getAbsoluteEncoderRad());
+
+        //SmartDashboard.putNumber("Front Right rotations", frontRight.getAbsoluteEncoderRotations());
+
 
         SmartDashboard.putNumber("Front Left Position", frontLeft.getTurningPosition());
         SmartDashboard.putNumber("Back Left Position", backLeft.getTurningPosition());

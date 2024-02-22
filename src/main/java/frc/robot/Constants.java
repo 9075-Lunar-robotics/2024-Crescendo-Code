@@ -112,19 +112,19 @@ public final class Constants {
         public static final boolean kBackRightTurningEncoderReversed = false;
 
         public static final boolean kFrontLeftDriveReversed = false;  //  inner wheel has the bevel gear
-        public static final boolean kBackLeftDriveReversed = false;   //
+        public static final boolean kBackLeftDriveReversed = true;   //
         public static final boolean kFrontRightDriveReversed = true;  //  reverses stuff
-        public static final boolean kBackRightDriveReversed = true;   //
+        public static final boolean kBackRightDriveReversed = false;   //
 
         public static final int kFrontLeftDriveAbsoluteEncoderPort = 12;   //  absoluteposition -0.498535 rotations
-        public static final int kBackLeftDriveAbsoluteEncoderPort = 14;    //  absoluteposition -0.005127 rotations
+        public static final int kBackLeftDriveAbsoluteEncoderPort = 15;    //  absoluteposition -0.005127 rotations
         public static final int kFrontRightDriveAbsoluteEncoderPort = 13;  //  absoluteposition -0.485840 rotations
-        public static final int kBackRightDriveAbsoluteEncoderPort = 15;   //  absoluteposition  0.000244 rotations
+        public static final int kBackRightDriveAbsoluteEncoderPort = 14;   //  absoluteposition  0.000244 rotations
 
-        public static final boolean kFrontLeftDriveAbsoluteEncoderReversed = true;
-        public static final boolean kBackLeftDriveAbsoluteEncoderReversed = true;
-        public static final boolean kFrontRightDriveAbsoluteEncoderReversed = true;
-        public static final boolean kBackRightDriveAbsoluteEncoderReversed = true;
+        public static final boolean kFrontLeftDriveAbsoluteEncoderReversed = true;     // 12
+        public static final boolean kBackLeftDriveAbsoluteEncoderReversed = true;      // 14
+        public static final boolean kFrontRightDriveAbsoluteEncoderReversed = true;    // 13
+        public static final boolean kBackRightDriveAbsoluteEncoderReversed = true;     // 15
 
         public static double gryoDegrees = 360;
 
@@ -133,10 +133,10 @@ public final class Constants {
         // public static final double kFrontRightDriveAbsoluteEncoderOffsetRad = 5.355; //0.220458984375
         // public static final double kBackRightDriveAbsoluteEncoderOffsetRad = 1.179; //0.310546875
 
-        public static final double kFrontLeftDriveAbsoluteEncoderOffsetRad = 0;
-        public static final double kBackLeftDriveAbsoluteEncoderOffsetRad = 0;
-        public static final double kFrontRightDriveAbsoluteEncoderOffsetRad = 0;
-        public static final double kBackRightDriveAbsoluteEncoderOffsetRad = 0;
+        public static final double kFrontLeftDriveAbsoluteEncoderOffsetRad = 0.0;
+        public static final double kBackLeftDriveAbsoluteEncoderOffsetRad = 0.0 ;
+        public static final double kFrontRightDriveAbsoluteEncoderOffsetRad = 0.0;
+        public static final double kBackRightDriveAbsoluteEncoderOffsetRad = 0.0;
 
         public static final double kPhysicalMaxSpeedMetersPerSecond = 4.4;
         public static final double kPhysicalMaxAngularSpeedRadiansPerSecond = 2 * 2 * Math.PI;

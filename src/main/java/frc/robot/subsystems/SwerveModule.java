@@ -1,5 +1,6 @@
 package frc.robot.subsystems;
 
+//import com.ctre.phoenix6.StatusSignal;
 import com.ctre.phoenix6.hardware.CANcoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
@@ -80,16 +81,23 @@ public class SwerveModule {
 
     public double getAbsoluteEncoderRad() {
         //double angle = (absoluteEncoder.getAbsolutePosition() * Math.PI / 180);
-        double angle = ((absoluteEncoder.getAbsolutePosition().getValueAsDouble() * Math.PI / 180));
+        double angle = (absoluteEncoder.getAbsolutePosition().getValueAsDouble());
+        angle -= (absoluteEncoderOffsetRad);
+        angle = (angle * (2 * Math.PI));
+        return angle * (absoluteEncoderReversed ? -1.0 : 1.0);
+    }
+    
+    public double getAbsoluteEncoderRotations()
+    {
+        double angle = (absoluteEncoder.getAbsolutePosition().getValueAsDouble());
         angle -= absoluteEncoderOffsetRad;
         return angle * (absoluteEncoderReversed ? -1.0 : 1.0);
     }
 
     public void resetEncoders() {
-        driveEncoder.setPosition(getAbsoluteEncoderRad() / 100);
-        turnEncoder.setPosition(getAbsoluteEncoderRad() / 100);
+        driveEncoder.setPosition(0);
+        turnEncoder.setPosition(getAbsoluteEncoderRad());
     }
-
 
 
     public void resetTurn(){
@@ -122,8 +130,7 @@ public class SwerveModule {
     public SwerveModulePosition getPosition(){
         return new SwerveModulePosition(
             driveEncoder.getPosition(),
-            Rotation2d.fromDegrees(absoluteEncoder.getPosition().getValueAsDouble() 
-            - absoluteEncoderOffsetRad));
+            Rotation2d.fromDegrees((absoluteEncoder.getPosition().getValueAsDouble() * (2 *Math.PI)) - absoluteEncoderOffsetRad));
       }
       
 

@@ -18,18 +18,32 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.SwerveControllerCommand;
+
+import frc.robot.commands.SwerveJoystick;
+import frc.robot.subsystems.SwerveSubsystem;
+//import frc.robot.subsystems.Arm;
+//import frc.robot.commands.ArmControl;
+
 import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.OIConstants;
 import frc.robot.Constants.USB;
+
+
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-//import frc.robot.commands.ArmControl;
-import frc.robot.commands.SwerveJoystick;
-//import frc.robot.subsystems.Arm;
-import frc.robot.subsystems.SwerveSubsystem;
+
+//import frc.robot.commands.auto.DriveForward;
+//import frc.robot.commands.auto.FiveBallAuto; //import auto commands here
+
+
+
+
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -97,11 +111,11 @@ public class RobotContainer {
                 new Pose2d(-0.25 , 0.01, Rotation2d.fromDegrees(0)),
                 trajectoryConfig);       */
         Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
-                new Pose2d(0, 0, new Rotation2d(0)), // starting coordinate and starting rotation
+                new Pose2d(0, 0, new Rotation2d(180)), // starting coordinate and starting rotation
                 List.of(
                         new Translation2d(0.075, 0), // second coordinate
                         new Translation2d(1, 0)),    // third coordinate
-                new Pose2d(1 , 2, Rotation2d.fromDegrees(0)), // ending coordinate and ending rotation
+                new Pose2d(1 , 1, Rotation2d.fromDegrees(0)), // ending coordinate and ending rotation
                 trajectoryConfig);               
 
 
@@ -112,7 +126,7 @@ public class RobotContainer {
                 AutoConstants.kPThetaController, 0, 0, AutoConstants.kThetaControllerConstraints);
         thetaController.enableContinuousInput(-Math.PI, Math.PI);
 
-        // 4. Construct command to follow trajectory
+        // 4. Construct command to follow trajectoryd
         SwerveControllerCommand swerveControllerCommand = new SwerveControllerCommand(
                 trajectory, // change this
                 swerveSubsystem::getPose,  //gets coordinates
